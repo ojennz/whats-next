@@ -1,0 +1,3382 @@
+/* ========================================
+   DEV MENU
+======================================== */
+
+.dev-button {
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+
+    z-index: 9999;
+
+    padding: 8px 12px;
+
+    background: #ff4d4d;
+    color: white;
+
+    border: 1px solid #111;
+
+    font-size: 9px;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+}
+
+
+.dev-menu {
+    display: none;
+
+    position: fixed;
+
+    right: 15px;
+    bottom: 55px;
+
+    width: 160px;
+
+    padding: 10px;
+
+    background: white;
+
+    border: 1px solid #111;
+
+    z-index: 9999;
+}
+
+
+.dev-menu.show {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+
+.dev-menu button {
+    padding: 8px;
+
+    background: white;
+
+    border: 1px solid #111;
+
+    font-family: "Clarity City", Arial, sans-serif;
+
+    font-size: 9px;
+
+    cursor: pointer;
+}
+
+
+.dev-menu button:hover {
+    background: #111;
+    color: white;
+}
+
+
+
+@font-face {
+    font-family: "Libre Caslon Condensed";
+    src: url("fonts/LibreCaslonCondensed-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Clarity City";
+    src: url("fonts/ClarityCity-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+/* =========================
+   BASIC SETUP
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    margin: 0;
+
+    background: #dcecff;
+    color: #111111;
+
+    font-family: "Clarity City", Arial, sans-serif;
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   FULL SCREEN
+========================= */
+
+.start-screen {
+    position: relative;
+
+    width: 100vw;
+    height: 100vh;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            #f7f9f7 0%,
+            #edf4f7 45%,
+            #d4e5f5 100%
+        );
+}
+
+
+/* =========================
+   CENTER CONTENT
+========================= */
+
+.center-content {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 500px;
+    max-width: 80vw;
+
+    text-align: center;
+
+    z-index: 10;
+}
+
+
+/* small text above title */
+
+.eyebrow {
+    margin: 0 0 20px 0;
+
+    font-family: "Clarity City", Arial, sans-serif;
+
+    font-size: 11px;
+    font-weight: 400;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================
+   MAIN TITLE
+========================= */
+
+h1 {
+    margin: 0 0 35px 0;
+
+    font-family: "Libre Caslon Condensed", Georgia, serif;
+
+    font-size: 82px;
+    font-weight: 400;
+
+    line-height: 0.85;
+
+    letter-spacing: -1px;
+
+    text-align: center;
+}
+
+
+/* =========================
+   BODY TEXT
+========================= */
+
+.intro {
+    margin: 0 auto 35px auto;
+
+    font-family: "Clarity City", Arial, sans-serif;
+
+    font-size: 14px;
+    font-weight: 400;
+
+    line-height: 1.5;
+
+    text-align: center;
+}
+
+
+/* =========================
+   FILE / FOLDER BUTTON
+========================= */
+
+.file-button {
+    position: relative;
+
+    margin-top: 10px;
+
+    padding: 16px 38px;
+
+    background: #fff6c7;
+    color: #111111;
+
+    border: 1.5px solid #111111;
+
+    font-family: "Clarity City", Arial, sans-serif;
+
+    font-size: 12px;
+    font-weight: 400;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    box-shadow: 4px 4px 0 #111111;
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+
+/* little folder tab */
+
+.folder-tab {
+    position: absolute;
+
+    top: -9px;
+    left: 10px;
+
+    width: 35px;
+    height: 9px;
+
+    background: #fff6c7;
+
+    border: 1.5px solid #111111;
+    border-bottom: none;
+}
+
+
+/* button hover */
+
+.file-button:hover {
+    transform: translate(4px, 4px);
+
+    box-shadow: 0 0 0 #111111;
+}
+
+
+/* ========================================
+   HOME — FLOATING PNG OBJECTS
+
+   6 objects form a large circular frame
+   around the center content
+======================================== */
+
+.floating-object {
+    position: absolute;
+
+    object-fit: contain;
+
+    z-index: 2;
+
+    pointer-events: none;
+}
+
+
+/* -------- TOP LEFT -------- */
+
+.object-1 {
+    width: 190px;
+
+    top: 5%;
+    left: 9%;
+
+    transform: rotate(-8deg);
+}
+
+
+/* -------- MIDDLE LEFT -------- */
+
+.object-2 {
+    width: 220px;
+
+    top: 39%;
+    left: 3%;
+
+    transform: rotate(7deg);
+}
+
+
+/* -------- BOTTOM LEFT -------- */
+
+.object-3 {
+    width: 205px;
+
+    bottom: 4%;
+    left: 12%;
+
+    transform: rotate(-5deg);
+}
+
+
+/* -------- TOP RIGHT -------- */
+
+.object-4 {
+    width: 190px;
+
+    top: 5%;
+    right: 10%;
+
+    transform: rotate(10deg);
+}
+
+
+/* -------- MIDDLE RIGHT -------- */
+
+.object-5 {
+    width: 220px;
+
+    top: 39%;
+    right: 3%;
+
+    transform: rotate(-7deg);
+}
+
+
+/* -------- BOTTOM RIGHT -------- */
+
+.object-6 {
+    width: 205px;
+
+    bottom: 4%;
+    right: 12%;
+
+    transform: rotate(5deg);
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 700px) {
+
+    .center-content {
+        width: 85vw;
+    }
+
+    h1 {
+        font-size: 60px;
+    }
+
+    .floating-object {
+        width: 90px;
+    }
+
+    .object-2,
+    .object-5 {
+        width: 100px;
+    }
+
+}
+
+
+
+
+/* =========================
+   ACT / STORY SCREEN
+========================= */
+
+.act-screen {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 900px;
+    max-width: 90vw;
+
+    text-align: center;
+}
+
+
+/* BIG STORY TEXT */
+
+.story-title {
+    margin: 0 auto 30px auto;
+
+    width: 100%;
+
+    font-family: "Libre Caslon Condensed", Georgia, serif;
+
+    font-size: 80px;
+    font-weight: 400;
+
+    line-height: 0.85;
+    letter-spacing: -1px;
+
+    text-align: center;
+}
+
+
+/* NORMAL STORY TEXT */
+
+.story-text {
+    margin: 0 auto 35px auto;
+
+    font-family: "Clarity City", Arial, sans-serif;
+
+    font-size: 16px;
+
+    line-height: 1.6;
+}
+
+/* ========================================
+   HOME ROUTE — FLOOD
+======================================== */
+
+.home-center {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    text-align: center;
+
+    z-index: 2;
+}
+
+
+.flood-card {
+    position: absolute;
+
+    padding: 14px 18px;
+
+    background: rgba(255, 255, 255, 0.85);
+
+    border: 1px solid #111;
+
+    font-family: "Clarity City", Arial, sans-serif;
+
+    font-size: 11px;
+    letter-spacing: 1px;
+
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.15);
+
+    z-index: 5;
+}
+
+
+/* RANDOM / UNCOMFORTABLE POSITIONS */
+
+.flood-1 {
+    top: 10%;
+    left: 8%;
+
+    transform: rotate(-4deg);
+}
+
+.flood-2 {
+    top: 20%;
+    right: 10%;
+
+    transform: rotate(5deg);
+}
+
+.flood-3 {
+    top: 45%;
+    left: 4%;
+
+    transform: rotate(2deg);
+}
+
+.flood-4 {
+    bottom: 12%;
+    right: 8%;
+
+    transform: rotate(-5deg);
+}
+
+.flood-5 {
+    bottom: 20%;
+    left: 15%;
+
+    transform: rotate(4deg);
+}
+
+.flood-6 {
+    top: 8%;
+    left: 45%;
+
+    transform: rotate(-2deg);
+}
+
+.flood-7 {
+    top: 55%;
+    right: 4%;
+
+    transform: rotate(6deg);
+}
+
+.flood-8 {
+    bottom: 8%;
+    left: 45%;
+
+    transform: rotate(-3deg);
+}
+
+
+/* SECOND FLOOD */
+
+.flood-9 {
+    top: 30%;
+    left: 25%;
+
+    transform: rotate(8deg);
+
+    z-index: 10;
+}
+
+.flood-10 {
+    top: 60%;
+    left: 35%;
+
+    transform: rotate(-8deg);
+
+    z-index: 11;
+}
+
+.flood-11 {
+    top: 15%;
+    right: 30%;
+
+    transform: rotate(10deg);
+
+    z-index: 12;
+}
+
+.flood-12 {
+    bottom: 30%;
+    right: 20%;
+
+    transform: rotate(-10deg);
+
+    z-index: 13;
+}
+
+.flood-13 {
+    top: 38%;
+    left: 12%;
+
+    transform: rotate(6deg);
+
+    z-index: 14;
+}
+
+.flood-14 {
+    bottom: 15%;
+    right: 35%;
+
+    transform: rotate(-6deg);
+
+    z-index: 15;
+}
+
+
+/* LOST BUTTON */
+
+.lost-button {
+    position: absolute;
+
+    bottom: 5%;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    padding: 15px 25px;
+
+    background: #111;
+    color: white;
+
+    border: none;
+
+    font-family: "Clarity City", Arial, sans-serif;
+
+    font-size: 11px;
+    letter-spacing: 1.5px;
+
+    cursor: pointer;
+
+    z-index: 30;
+}
+
+
+.lost-button:hover {
+    background: white;
+    color: black;
+
+    outline: 1px solid black;
+}
+
+
+/* ========================================
+   HOME ROUTE — FLOOD
+======================================== */
+
+
+/* -------------------------
+   DARKENING BACKGROUND
+------------------------- */
+
+.start-screen.flood-dark {
+    --darkness: 0.08;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, var(--darkness)),
+            rgba(0, 0, 0, var(--darkness))
+        ),
+        radial-gradient(
+            circle at 50% 40%,
+            #dcecff 0%,
+            #9fb8d0 45%,
+            #596674 100%
+        );
+
+    transition: background 0.6s ease;
+}
+
+
+/* 黑色 overlay
+   opacity 会由 JavaScript 一点一点增加 */
+
+.start-screen.flood-dark::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: #000;
+
+    opacity: var(--darkness);
+
+    pointer-events: none;
+
+    z-index: 3;
+
+    transition: opacity 0.6s ease;
+}
+
+
+
+/* -------------------------
+   CENTER TEXT
+------------------------- */
+
+.flood-center {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    text-align: center;
+
+    z-index: 4;
+
+    transition:
+        opacity 0.8s ease,
+        filter 0.8s ease;
+}
+
+
+.second-flood .flood-center {
+    opacity: 0.18;
+    filter: blur(3px);
+}
+
+
+
+/* ========================================
+   FLOOD WINDOWS
+======================================== */
+
+.flood-card {
+    position: absolute;
+
+    width: 360px;
+    min-height: 135px;
+
+    background: #eeeeee;
+    color: #111;
+
+    border: 1px solid #111;
+
+    font-family: "Clarity City", Arial, sans-serif;
+
+    box-shadow:
+        8px 10px 0 rgba(0, 0, 0, 0.35);
+
+    z-index: 10;
+
+    opacity: 0;
+
+    animation:
+        floodAppear 0.3s ease forwards;
+}
+
+
+
+/* fake system title bar */
+
+.window-bar {
+    height: 32px;
+
+    padding: 0 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: #111;
+    color: #fff;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+
+
+/* actual message */
+
+.window-message {
+    padding: 28px 24px 30px 24px;
+
+    font-size: 15px;
+
+    line-height: 1.45;
+
+    letter-spacing: 0.2px;
+}
+
+
+
+/* ========================================
+   FIRST WAVE
+======================================== */
+
+
+.flood-1 {
+    top: 7%;
+    left: 5%;
+
+    transform: rotate(-3deg);
+}
+
+
+.flood-2 {
+    top: 9%;
+    right: 5%;
+
+    transform: rotate(3deg);
+}
+
+
+.flood-3 {
+    top: 31%;
+    left: 12%;
+
+    transform: rotate(2deg);
+}
+
+
+.flood-4 {
+    top: 33%;
+    right: 9%;
+
+    transform: rotate(-3deg);
+}
+
+
+.flood-5 {
+    bottom: 9%;
+    left: 5%;
+
+    transform: rotate(4deg);
+}
+
+
+.flood-6 {
+    bottom: 7%;
+    right: 5%;
+
+    transform: rotate(-4deg);
+}
+
+
+.flood-7 {
+    top: 15%;
+    left: 37%;
+
+    transform: rotate(-2deg);
+
+    z-index: 15;
+}
+
+
+.flood-8 {
+    bottom: 15%;
+    left: 37%;
+
+    transform: rotate(3deg);
+
+    z-index: 16;
+}
+
+
+
+/* ========================================
+   SECOND WAVE
+======================================== */
+
+
+.flood-9 {
+    top: 23%;
+    left: 22%;
+
+    transform: rotate(-6deg);
+
+    z-index: 20;
+}
+
+
+.flood-10 {
+    top: 28%;
+    right: 20%;
+
+    transform: rotate(7deg);
+
+    z-index: 21;
+}
+
+
+.flood-11 {
+    bottom: 23%;
+    left: 18%;
+
+    transform: rotate(5deg);
+
+    z-index: 22;
+}
+
+
+.flood-12 {
+    bottom: 19%;
+    right: 17%;
+
+    transform: rotate(-7deg);
+
+    z-index: 23;
+}
+
+
+.flood-13 {
+    top: 43%;
+    left: 34%;
+
+    transform: rotate(8deg);
+
+    z-index: 24;
+}
+
+
+.flood-14 {
+    top: 52%;
+    left: 42%;
+
+    transform: rotate(-5deg);
+
+    z-index: 25;
+}
+
+
+
+/* ========================================
+   WINDOW APPEAR ANIMATION
+======================================== */
+
+@keyframes floodAppear {
+
+    0% {
+        opacity: 0;
+
+        scale: 0.82;
+
+        filter: blur(5px);
+    }
+
+
+    70% {
+        opacity: 1;
+
+        scale: 1.04;
+
+        filter: blur(0);
+    }
+
+
+    100% {
+        opacity: 1;
+
+        scale: 1;
+
+        filter: blur(0);
+    }
+}
+
+
+
+/* ========================================
+   WHERE SHOULD I START???
+======================================== */
+
+.first-lost-button {
+    position: absolute;
+
+    bottom: 4%;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    padding: 17px 30px;
+
+    background: white;
+    color: #111;
+
+    border: 1px solid #111;
+
+    font-family: "Clarity City", Arial, sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 1.7px;
+
+    cursor: pointer;
+
+    z-index: 80;
+
+    transition:
+        background 0.15s ease,
+        color 0.15s ease;
+}
+
+
+.first-lost-button:hover {
+    background: #111;
+    color: white;
+}
+
+
+
+/* 3.5 seconds:
+   starts feeling urgent */
+
+.first-lost-button.urgent {
+    animation:
+        urgentButton 0.45s infinite alternate;
+}
+
+
+@keyframes urgentButton {
+
+    from {
+        transform:
+            translateX(-50%)
+            scale(1);
+    }
+
+    to {
+        transform:
+            translateX(-50%)
+            scale(1.08);
+    }
+}
+
+
+
+/* ========================================
+   GET OUT
+======================================== */
+
+.escape-button {
+    position: absolute;
+
+    bottom: 4%;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    padding: 17px 34px;
+
+    background: #000;
+    color: #fff;
+
+    border: 1px solid white;
+
+    font-family: "Clarity City", Arial, sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    z-index: 100;
+
+    animation:
+        escapeAppear 0.8s ease forwards;
+}
+
+
+.escape-button:hover {
+    background: white;
+    color: black;
+}
+
+
+@keyframes escapeAppear {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* BLACK HOLE ANIMATION */
+
+@keyframes collapse {
+
+    0% {
+        transform: scale(1);
+        opacity: 1;
+        filter: blur(0);
+    }
+
+    70% {
+        transform: scale(0.4);
+        opacity: 0.7;
+        filter: blur(2px);
+    }
+
+    100% {
+        transform: scale(0);
+        opacity: 0;
+        filter: blur(10px);
+    }
+
+}
+/* ========================================
+   FINAL BLACK HOLE FIX
+======================================== */
+
+.start-screen.black-hole {
+    background: #000 !important;
+}
+
+
+/* flood 的黑色 overlay 在 black hole 时必须消失 */
+.start-screen.black-hole::after {
+    display: none;
+}
+
+
+.black-hole-content {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 80%;
+
+    text-align: center;
+
+    color: white;
+
+    z-index: 999;
+}
+
+
+.glitch-text {
+    margin: 0;
+
+    font-family: "Libre Caslon Condensed", Georgia, serif;
+
+    font-size: 120px;
+
+    color: white;
+
+    animation: collapse 3s ease forwards;
+}
+
+
+.small-unknown {
+    margin-top: 25px;
+
+    color: white;
+
+    font-family: "Clarity City", Arial, sans-serif;
+
+    font-size: 13px;
+
+    opacity: 0.65;
+}
+
+
+/* FINAL */
+
+.final-unknown {
+    opacity: 0;
+
+    animation: finalFadeIn 1.5s ease forwards;
+}
+
+
+.final-unknown h2 {
+    margin: 15px 0 25px 0;
+
+    font-family: "Libre Caslon Condensed", Georgia, serif;
+
+    font-size: 90px;
+
+    font-weight: 400;
+
+    color: white;
+}
+
+
+.final-eyebrow {
+    color: white;
+
+    opacity: 0.55;
+}
+
+
+.final-text {
+    color: white;
+
+    font-family: "Clarity City", Arial, sans-serif;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+    opacity: 0.6;
+}
+
+
+@keyframes finalFadeIn {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translate(-50%, -50%)
+            scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+    }
+}
+
+/* ========================================
+   START OVER
+======================================== */
+
+.restart-button {
+    margin-top: 35px;
+
+    padding: 14px 25px;
+
+    background: transparent;
+    color: white;
+
+    border: 1px solid rgba(255, 255, 255, 0.6);
+
+    font-family: "Clarity City", Arial, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    opacity: 0;
+
+    animation:
+        restartAppear 1.5s ease 1.5s forwards;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+
+.restart-button:hover {
+    background: white;
+    color: black;
+}
+
+
+@keyframes restartAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 0.7;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================
+   I DON'T KNOW — PRESSURE
+======================================== */
+
+.pressure-title {
+    transition:
+        font-size 0.8s ease,
+        letter-spacing 0.8s ease,
+        transform 0.8s ease;
+}
+
+
+/* SECOND TIME */
+
+.pressure-1 {
+    font-size: 105px;
+
+    line-height: 0.82;
+
+    letter-spacing: -2px;
+}
+
+
+/* THIRD TIME */
+
+.pressure-2 {
+    font-size: 145px;
+
+    line-height: 0.72;
+
+    letter-spacing: -4px;
+
+    transform: scaleX(1.03);
+}
+
+
+/* FINAL — TIME'S UP */
+
+.pressure-3 {
+    font-size: 190px;
+
+    line-height: 0.65;
+
+    letter-spacing: -6px;
+
+    transform: scaleX(1.08);
+}
+
+
+/* supporting text */
+
+.pressure-text {
+    font-size: 14px;
+
+    opacity: 0.75;
+}
+
+
+.pressure-text-2 {
+    font-size: 12px;
+
+    opacity: 0.5;
+}
+
+/* ========================================
+   JOB ROUTE — OPT COUNTER
+======================================== */
+
+.opt-counter {
+    width: 270px;
+
+    margin: 30px auto 40px auto;
+
+    padding: 20px;
+
+    border: 1px solid #111;
+
+    background: rgba(255, 255, 255, 0.35);
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    font-family: "Clarity City", Arial, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 1.5px;
+}
+
+
+.opt-counter strong {
+    font-family: "Libre Caslon Condensed", Georgia, serif;
+
+    font-size: 42px;
+
+    font-weight: 400;
+}
+
+
+/* ========================================
+   JOB ROUTE — PREPARATION
+======================================== */
+
+.prep-list {
+    width: 420px;
+
+    max-width: 80vw;
+
+    margin: 35px auto 20px auto;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+.prep-item {
+    width: 100%;
+
+    padding: 16px 18px;
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    background: rgba(255, 255, 255, 0.4);
+
+    color: #111;
+
+    border: 1px solid #111;
+
+    font-family: "Clarity City", Arial, sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 1.5px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.15s ease,
+        transform 0.15s ease,
+        opacity 0.15s ease;
+}
+
+
+.prep-item:hover {
+    background: white;
+
+    transform: translateX(4px);
+}
+
+
+.prep-item.completed {
+    opacity: 0.4;
+
+    text-decoration: line-through;
+
+    cursor: default;
+
+    transform: none;
+}
+
+
+.prep-counter {
+    margin-top: 20px;
+
+    font-family: "Clarity City", Arial, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    opacity: 0.55;
+}
+
+
+#prep-next {
+    margin-top: 20px;
+}
+
+
+/* ========================================
+   JOB ROUTE — JOB BROWSER
+======================================== */
+
+.job-browser {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 650px;
+
+    max-width: 85vw;
+
+    background: #f4f4f1;
+
+    border: 1px solid #111;
+
+    box-shadow:
+        12px 14px 0 rgba(0, 0, 0, 0.18);
+
+    z-index: 10;
+}
+
+
+.browser-bar {
+    height: 36px;
+
+    padding: 0 12px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    background: #111;
+
+    color: white;
+
+    font-family: "Clarity City", Arial, sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+
+.job-page {
+    padding: 55px;
+
+    text-align: left;
+}
+
+
+.job-company {
+    margin: 0 0 10px 0;
+
+    font-family: "Clarity City", Arial, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    opacity: 0.5;
+}
+
+
+.job-title {
+    margin: 0;
+
+    font-family: "Libre Caslon Condensed", Georgia, serif;
+
+    font-size: 55px;
+
+    font-weight: 400;
+
+    line-height: 0.9;
+
+    letter-spacing: -1px;
+}
+
+
+.job-info {
+    margin-top: 15px;
+
+    font-family: "Clarity City", Arial, sans-serif;
+
+    font-size: 11px;
+
+    opacity: 0.55;
+}
+
+
+.job-description {
+    margin-top: 35px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+
+    font-family: "Clarity City", Arial, sans-serif;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+
+.apply-button {
+    margin-top: 30px;
+
+    padding: 14px 30px;
+
+    background: #111;
+
+    color: white;
+
+    border: 1px solid #111;
+
+    font-family: "Clarity City", Arial, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.15s ease,
+        color 0.15s ease,
+        transform 0.15s ease;
+}
+
+
+.apply-button:hover {
+    background: white;
+
+    color: black;
+
+    transform: translateY(-2px);
+}
+
+
+/* ========================================
+   JOB ROUTE — MOBILE
+======================================== */
+
+@media (max-width: 700px) {
+
+    .opt-counter {
+        width: 240px;
+    }
+
+
+    .prep-list {
+        width: 85vw;
+    }
+
+
+    .job-browser {
+        width: 88vw;
+    }
+
+
+    .job-page {
+        padding: 35px 25px;
+    }
+
+
+    .job-title {
+        font-size: 45px;
+    }
+}
+
+/* ========================================
+   APPLICATION WINDOW
+======================================== */
+
+.application-window {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 620px;
+    max-width: 88vw;
+
+    max-height: 88vh;
+
+    overflow-y: auto;
+
+    background: #f4f4f1;
+
+    border: 1px solid #111;
+
+    box-shadow:
+        12px 14px 0 rgba(0, 0, 0, 0.18);
+
+    z-index: 20;
+}
+
+
+.application-page {
+    padding: 50px;
+
+    text-align: left;
+}
+
+
+.application-label {
+    margin: 0 0 12px 0;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    opacity: 0.45;
+}
+
+
+.application-title {
+    margin: 0;
+
+    max-width: 520px;
+
+    font-family: "Libre Caslon Condensed", Georgia, serif;
+
+    font-size: 46px;
+
+    font-weight: 400;
+
+    line-height: 0.95;
+
+    letter-spacing: -1px;
+}
+
+
+.application-help {
+    margin-top: 18px;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+
+    opacity: 0.55;
+}
+
+
+/* ========================================
+   FAKE UPLOAD
+======================================== */
+
+.fake-upload-box {
+    margin-top: 35px;
+
+    padding: 22px;
+
+    border: 1px dashed #777;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+    background: rgba(255, 255, 255, 0.4);
+}
+
+
+/* ========================================
+   SUCCESS
+======================================== */
+
+.application-success {
+    text-align: center;
+}
+
+
+.application-success .application-title {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.application-check {
+    margin: 0 0 25px 0;
+
+    font-family: "Libre Caslon Condensed", Georgia, serif;
+
+    font-size: 70px;
+
+    line-height: 1;
+}
+
+
+/* ========================================
+   FAKE APPLICATION FORM
+======================================== */
+
+.fake-form {
+    margin-top: 35px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+.fake-form label {
+    margin-top: 12px;
+
+    font-size: 8px;
+
+    letter-spacing: 1.8px;
+
+    opacity: 0.55;
+}
+
+
+.fake-form input,
+.fake-form textarea {
+    width: 100%;
+
+    padding: 13px 14px;
+
+    background: white;
+
+    color: #111;
+
+    border: 1px solid #999;
+
+    border-radius: 0;
+
+    outline: none;
+
+    font-family: "Clarity City", Arial, sans-serif;
+
+    font-size: 12px;
+}
+
+
+.fake-form textarea {
+    min-height: 90px;
+
+    resize: vertical;
+}
+
+
+.fake-form input:focus,
+.fake-form textarea:focus {
+    border-color: #111;
+}
+
+
+/* ========================================
+   YES / NO
+======================================== */
+
+.application-choices {
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 40px;
+}
+
+
+.form-choice {
+    flex: 1;
+
+    padding: 18px;
+
+    background: rgba(255, 255, 255, 0.5);
+
+    color: #111;
+
+    border: 1px solid #111;
+
+    font-family: "Clarity City", Arial, sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition: 0.15s ease;
+}
+
+
+.form-choice:hover {
+    background: #111;
+
+    color: white;
+}
+
+
+/* ========================================
+   REVIEW
+======================================== */
+
+.review-list {
+    margin-top: 35px;
+
+    border-top: 1px solid #aaa;
+}
+
+
+.review-list div {
+    padding: 16px 0;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    border-bottom: 1px solid #ccc;
+
+    font-size: 10px;
+
+    letter-spacing: 1.2px;
+}
+
+
+.review-list strong {
+    font-weight: 400;
+}
+
+
+/* ========================================
+   APPLICATION COUNTER
+======================================== */
+
+.application-counter {
+    width: 240px;
+
+    margin: 30px auto;
+
+    padding: 20px;
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    border: 1px solid #111;
+
+    background: rgba(255, 255, 255, 0.35);
+
+    font-size: 10px;
+
+    letter-spacing: 1.5px;
+}
+
+
+.application-counter strong {
+    font-family: "Libre Caslon Condensed", Georgia, serif;
+
+    font-size: 42px;
+
+    font-weight: 400;
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 700px) {
+
+    .application-window {
+        width: 90vw;
+    }
+
+
+    .application-page {
+        padding: 35px 25px;
+    }
+
+
+    .application-title {
+        font-size: 38px;
+    }
+
+
+    .application-choices {
+        flex-direction: column;
+    }
+
+
+    .fake-upload-box {
+        flex-direction: column;
+    }
+}
+
+/* ========================================
+   JOB ROUTE — STATS
+======================================== */
+
+.job-stats {
+    width: 620px;
+    max-width: 85vw;
+
+    margin: 40px auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    border: 1px solid #111;
+}
+
+
+.job-stats div {
+    padding: 24px 15px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+
+    border-right: 1px solid #111;
+}
+
+
+.job-stats div:last-child {
+    border-right: none;
+}
+
+
+.job-stats span {
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+
+    opacity: 0.5;
+}
+
+
+.job-stats strong {
+    font-family: "Libre Caslon Condensed", Georgia, serif;
+
+    font-size: 45px;
+
+    font-weight: 400;
+}
+
+
+/* ========================================
+   GRIND SCREEN
+======================================== */
+
+.grind-screen {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 600px;
+    max-width: 85vw;
+
+    text-align: center;
+}
+
+
+.grind-title {
+    margin: 15px 0 35px 0;
+
+    font-family: "Libre Caslon Condensed", Georgia, serif;
+
+    font-size: 75px;
+
+    font-weight: 400;
+
+    line-height: 0.85;
+}
+
+
+.grind-job {
+    margin: 0;
+
+    font-size: 13px;
+
+    letter-spacing: 2px;
+}
+
+
+.grind-company {
+    margin-top: 8px;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+    opacity: 0.45;
+}
+
+
+.grind-apply {
+    margin-top: 30px;
+
+    padding: 15px 45px;
+
+    background: #111;
+
+    color: white;
+
+    border: 1px solid #111;
+
+    font-family: "Clarity City", Arial, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+}
+
+
+.grind-apply:hover {
+    background: white;
+
+    color: black;
+}
+
+
+.mini-stats {
+    margin-top: 25px;
+
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+
+    opacity: 0.4;
+}
+
+
+/* ========================================
+   EMAIL WINDOW
+======================================== */
+
+.email-window {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 620px;
+    max-width: 88vw;
+
+    background: #f4f4f1;
+
+    border: 1px solid #111;
+
+    box-shadow:
+        12px 14px 0 rgba(0, 0, 0, 0.18);
+}
+
+
+.email-page {
+    padding: 45px;
+}
+
+
+.email-from {
+    margin: 0;
+
+    font-size: 9px;
+
+    letter-spacing: 1px;
+
+    opacity: 0.45;
+}
+
+
+.email-subject {
+    margin: 15px 0 30px 0;
+
+    padding-bottom: 20px;
+
+    border-bottom: 1px solid #bbb;
+
+    font-family: "Libre Caslon Condensed", Georgia, serif;
+
+    font-size: 34px;
+}
+
+
+.email-body {
+    font-size: 12px;
+
+    line-height: 1.7;
+}
+
+
+.email-button {
+    margin-top: 25px;
+
+    padding: 12px 25px;
+
+    background: transparent;
+
+    color: #111;
+
+    border: 1px solid #111;
+
+    font-family: "Clarity City", Arial, sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+
+    cursor: pointer;
+}
+
+
+.email-button:hover {
+    background: #111;
+
+    color: white;
+}
+
+
+/* ========================================
+   MOM MESSAGE
+======================================== */
+
+.message-popup {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 390px;
+    max-width: 80vw;
+
+    background: #fff;
+
+    border: 1px solid #111;
+
+    box-shadow:
+        10px 12px 0 rgba(0, 0, 0, 0.25);
+
+    z-index: 500;
+
+    animation:
+        messagePop 0.25s ease forwards;
+}
+
+
+.message-header {
+    padding: 10px 12px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    background: #111;
+
+    color: white;
+
+    font-size: 8px;
+
+    letter-spacing: 1.5px;
+}
+
+
+.message-body {
+    padding: 28px;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+
+.message-choices {
+    margin-top: 25px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+
+.message-choices button,
+.message-close {
+    width: 100%;
+
+    padding: 11px;
+
+    background: white;
+
+    color: #111;
+
+    border: 1px solid #111;
+
+    font-family: "Clarity City", Arial, sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+}
+
+
+.message-choices button:hover,
+.message-close:hover {
+    background: #111;
+
+    color: white;
+}
+
+
+@keyframes messagePop {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translate(-50%, -47%)
+            scale(0.94);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+    }
+}
+
+
+/* ========================================
+   INTERVIEW
+======================================== */
+
+.interview-email {
+    box-shadow:
+        12px 14px 0 rgba(0, 0, 0, 0.28);
+}
+
+
+.interview-button {
+    background: #111;
+
+    color: white;
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 700px) {
+
+    .job-stats {
+        grid-template-columns: 1fr;
+    }
+
+
+    .job-stats div {
+        border-right: none;
+
+        border-bottom: 1px solid #111;
+    }
+
+
+    .job-stats div:last-child {
+        border-bottom: none;
+    }
+
+
+    .email-page {
+        padding: 30px 25px;
+    }
+
+
+    .grind-title {
+        font-size: 58px;
+    }
+}
+
+/* ========================================
+   INTERVIEW CHECKLIST
+======================================== */
+
+.interview-checklist {
+    width: 420px;
+    max-width: 80vw;
+
+    margin: 35px auto;
+
+    border-top: 1px solid #111;
+}
+
+
+.interview-checklist div {
+    padding: 14px 5px;
+
+    display: flex;
+    justify-content: space-between;
+
+    border-bottom: 1px solid #111;
+
+    font-size: 10px;
+    letter-spacing: 1.5px;
+}
+
+
+/* ========================================
+   INTERVIEW SCREEN
+======================================== */
+
+.interview-screen {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 750px;
+    max-width: 88vw;
+
+    text-align: center;
+}
+
+
+.interviewer {
+    margin: 40px 0 15px 0;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    opacity: 0.4;
+}
+
+
+.interview-question {
+    width: 650px;
+    max-width: 90%;
+
+    margin: 0 auto;
+
+    font-family: "Libre Caslon Condensed", Georgia, serif;
+
+    font-size: 58px;
+
+    font-weight: 400;
+
+    line-height: 0.95;
+}
+
+
+.interview-answer {
+    width: 520px;
+    max-width: 90%;
+
+    margin: 45px auto 0 auto;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+.interview-answer button {
+    padding: 14px 18px;
+
+    background: rgba(255, 255, 255, 0.4);
+
+    color: #111;
+
+    border: 1px solid #111;
+
+    font-family: "Clarity City", Arial, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 1.2px;
+
+    cursor: pointer;
+
+    transition: 0.15s ease;
+}
+
+
+.interview-answer button:hover {
+    background: #111;
+
+    color: white;
+}
+
+
+/* sponsorship suddenly feels larger */
+
+.sponsorship-question {
+    font-size: 72px;
+
+    line-height: 0.88;
+}
+
+
+/* ========================================
+   EMPTY INBOX
+======================================== */
+
+.empty-inbox {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 500px;
+    max-width: 85vw;
+
+    text-align: center;
+}
+
+
+.empty-number {
+    margin: 10px 0;
+
+    font-family: "Libre Caslon Condensed", Georgia, serif;
+
+    font-size: 150px;
+
+    font-weight: 400;
+
+    line-height: 0.8;
+}
+
+
+.refresh-button {
+    margin-top: 25px;
+
+    padding: 14px 30px;
+
+    background: transparent;
+
+    color: #111;
+
+    border: 1px solid #111;
+
+    font-family: "Clarity City", Arial, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+}
+
+
+.refresh-button:hover {
+    background: #111;
+
+    color: white;
+}
+
+
+/* ========================================
+   OPT WARNING
+======================================== */
+
+.opt-warning {
+    margin: -15px 0 35px 0;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    opacity: 0.55;
+}
+
+
+@media (max-width: 700px) {
+
+    .interview-question {
+        font-size: 44px;
+    }
+
+    .sponsorship-question {
+        font-size: 50px;
+    }
+
+    .empty-number {
+        font-size: 110px;
+    }
+}
+
+/* ========================================
+   BANK
+======================================== */
+
+.bank-window {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 520px;
+    max-width: 88vw;
+
+    background: #f4f4f1;
+
+    border: 1px solid #111;
+
+    box-shadow:
+        12px 14px 0 rgba(0, 0, 0, 0.18);
+}
+
+
+.bank-page {
+    padding: 50px;
+
+    text-align: left;
+}
+
+
+.bank-center {
+    text-align: center;
+}
+
+
+.bank-label {
+    margin: 0;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    opacity: 0.45;
+}
+
+
+.bank-balance {
+    margin: 12px 0 35px 0;
+
+    font-family: "Libre Caslon Condensed", Georgia, serif;
+
+    font-size: 78px;
+
+    font-weight: 400;
+
+    line-height: 0.9;
+}
+
+
+.low-balance {
+    font-size: 95px;
+}
+
+
+.rent-charge {
+    padding: 18px 0;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    border-top: 1px solid #aaa;
+    border-bottom: 1px solid #aaa;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+}
+
+
+.rent-charge strong {
+    font-weight: 400;
+}
+
+
+.bank-warning {
+    margin-top: 15px;
+
+    font-size: 10px;
+
+    opacity: 0.5;
+}
+
+
+.bank-choices {
+    margin-top: 35px;
+
+    display: flex;
+
+    gap: 8px;
+}
+
+
+.bank-choices button {
+    flex: 1;
+
+    padding: 14px;
+
+    background: white;
+
+    color: #111;
+
+    border: 1px solid #111;
+
+    font-family: "Clarity City", Arial, sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 1.2px;
+
+    cursor: pointer;
+}
+
+
+.bank-choices button:hover {
+    background: #111;
+
+    color: white;
+}
+
+
+/* ========================================
+   SECOND GRIND
+======================================== */
+
+.grind-bigger {
+    font-size: 105px;
+}
+
+
+.grind-biggest {
+    font-size: 145px;
+
+    letter-spacing: -3px;
+}
+
+
+/* ========================================
+   JOB CHAOS
+======================================== */
+
+.job-chaos {
+    background:
+        radial-gradient(
+            circle at center,
+            #e8f1f8 0%,
+            #adb9c4 100%
+        );
+}
+
+
+.chaos-center {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    text-align: center;
+
+    opacity: 0.35;
+}
+
+
+.chaos-popup {
+    position: absolute;
+
+    width: 330px;
+
+    background: #f2f2f2;
+
+    border: 1px solid #111;
+
+    box-shadow:
+        8px 10px 0 rgba(0, 0, 0, 0.25);
+
+    z-index: 50;
+
+    animation:
+        chaosAppear 0.2s ease forwards;
+}
+
+
+.chaos-header {
+    height: 28px;
+
+    padding: 0 9px;
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    background: #111;
+
+    color: white;
+
+    font-size: 8px;
+
+    letter-spacing: 1.5px;
+}
+
+
+.chaos-message {
+    padding: 24px 20px;
+
+    font-size: 12px;
+
+    line-height: 1.45;
+}
+
+
+.chaos-1 {
+    top: 8%;
+    left: 7%;
+    transform: rotate(-3deg);
+}
+
+
+.chaos-2 {
+    top: 10%;
+    right: 8%;
+    transform: rotate(3deg);
+}
+
+
+.chaos-3 {
+    top: 38%;
+    left: 4%;
+    transform: rotate(4deg);
+}
+
+
+.chaos-4 {
+    top: 40%;
+    right: 5%;
+    transform: rotate(-4deg);
+}
+
+
+.chaos-5 {
+    bottom: 8%;
+    left: 12%;
+    transform: rotate(-2deg);
+}
+
+
+.chaos-6 {
+    bottom: 9%;
+    right: 12%;
+    transform: rotate(3deg);
+}
+
+
+.chaos-7 {
+    top: 18%;
+    left: 28%;
+    transform: rotate(5deg);
+
+    z-index: 60;
+}
+
+
+.chaos-8 {
+    top: 26%;
+    right: 25%;
+    transform: rotate(-5deg);
+
+    z-index: 61;
+}
+
+
+.chaos-9 {
+    bottom: 19%;
+    left: 30%;
+    transform: rotate(-6deg);
+
+    z-index: 62;
+}
+
+
+.chaos-10 {
+    bottom: 16%;
+    right: 29%;
+    transform: rotate(6deg);
+
+    z-index: 63;
+}
+
+
+@keyframes chaosAppear {
+
+    from {
+        opacity: 0;
+
+        scale: 0.85;
+    }
+
+    to {
+        opacity: 1;
+
+        scale: 1;
+    }
+}
+
+
+.chaos-button {
+    position: absolute;
+
+    bottom: 4%;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    padding: 15px 30px;
+
+    background: #111;
+
+    color: white;
+
+    border: 1px solid white;
+
+    font-family: "Clarity City", Arial, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    z-index: 100;
+}
+
+
+/* ========================================
+   SILENCE
+======================================== */
+
+.silence-screen {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    font-family: "Libre Caslon Condensed", Georgia, serif;
+
+    font-size: 90px;
+
+    opacity: 0.3;
+}
+
+
+/* ========================================
+   OFFER
+======================================== */
+
+.offer-email {
+    box-shadow:
+        15px 17px 0 rgba(0, 0, 0, 0.25);
+}
+
+
+.offer-open-button {
+    margin-top: 30px;
+
+    padding: 15px 30px;
+
+    background: #111;
+
+    color: white;
+
+    border: 1px solid #111;
+
+    font-family: "Clarity City", Arial, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+}
+
+
+.offer-open-button:hover {
+    background: white;
+
+    color: black;
+}
+
+/* ========================================
+   FINAL JOB ROUTE
+======================================== */
+
+.offer-window {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 650px;
+    max-width: 88vw;
+
+    text-align: center;
+}
+
+
+.offer-title {
+    margin: 15px 0 40px 0;
+
+    font-family: "Libre Caslon Condensed", Georgia, serif;
+
+    font-size: 82px;
+    font-weight: 400;
+
+    line-height: 0.78;
+
+    letter-spacing: -2px;
+}
+
+
+.offer-details {
+    border-top: 1px solid #111;
+}
+
+
+.offer-details div {
+    padding: 17px 5px;
+
+    display: flex;
+    justify-content: space-between;
+
+    border-bottom: 1px solid #111;
+
+    font-size: 10px;
+    letter-spacing: 1.3px;
+}
+
+
+.offer-details strong {
+    font-weight: 400;
+}
+
+
+.offer-choices {
+    margin-top: 35px;
+
+    display: flex;
+
+    gap: 10px;
+}
+
+
+.offer-choices button {
+    flex: 1;
+
+    padding: 16px;
+
+    background: white;
+
+    color: #111;
+
+    border: 1px solid #111;
+
+    font-family: "Clarity City", Arial, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 1.5px;
+
+    cursor: pointer;
+}
+
+
+.offer-choices button:hover {
+    background: #111;
+    color: white;
+}
+
+
+/* ========================================
+   OPT DANGER
+======================================== */
+
+.opt-danger-counter {
+    width: 270px;
+
+    margin: 35px auto;
+
+    padding: 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border: 1px solid #111;
+}
+
+
+.opt-danger-counter span {
+    font-size: 9px;
+    letter-spacing: 1.5px;
+}
+
+
+.opt-danger-counter strong {
+    font-family: "Libre Caslon Condensed", Georgia, serif;
+
+    font-size: 55px;
+    font-weight: 400;
+}
+
+
+.opt-danger-text {
+    margin: 30px 0;
+
+    font-family: "Libre Caslon Condensed", Georgia, serif;
+
+    font-size: 65px;
+
+    line-height: 1;
+}
+
+
+/* ========================================
+   DISABLED CHOICE
+======================================== */
+
+.offer-choices .disabled-choice {
+    opacity: 0.22;
+
+    cursor: not-allowed;
+
+    text-decoration: line-through;
+}
+
+
+.offer-choices .disabled-choice:hover {
+    background: white;
+
+    color: #111;
+}
+
+
+.disabled-note {
+    margin-top: 14px;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    opacity: 0.45;
+}
+
+
+/* ========================================
+   SYSTEM WARNING
+======================================== */
+
+.system-warning {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 750px;
+    max-width: 88vw;
+
+    text-align: center;
+}
+
+
+.warning-title {
+    margin: 20px auto 30px auto;
+
+    font-family: "Libre Caslon Condensed", Georgia, serif;
+
+    font-size: 78px;
+    font-weight: 400;
+
+    line-height: 0.82;
+
+    letter-spacing: -2px;
+}
+
+
+/* ========================================
+   FINAL QUESTION
+======================================== */
+
+.final-job-screen {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 750px;
+    max-width: 90vw;
+
+    text-align: center;
+}
+
+
+.final-question {
+    margin: 10px 0 25px 0;
+
+    font-family: "Libre Caslon Condensed", Georgia, serif;
+
+    font-size: 130px;
+    font-weight: 400;
+
+line-height: 0.82;
+    letter-spacing: -5px;
+}
+
+
+.final-subtitle {
+    margin: 30px 0;
+
+    font-size: 12px;
+
+    opacity: 0.55;
+}
+
+
+.final-choices {
+    width: 480px;
+    max-width: 90%;
+
+    margin: 35px auto 0 auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 8px;
+}
+
+
+.final-choices button {
+    padding: 14px;
+
+    background: rgba(255, 255, 255, 0.45);
+
+    color: #111;
+
+    border: 1px solid #111;
+
+    font-family: "Clarity City", Arial, sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 1.2px;
+
+    cursor: pointer;
+}
+
+
+.final-choices button:hover {
+    background: #111;
+
+    color: white;
+}
+
+
+/* ========================================
+   FINAL ENDING
+======================================== */
+
+.final-ending {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 700px;
+    max-width: 88vw;
+
+    text-align: center;
+}
+
+
+.final-ending h2 {
+    margin: 20px 0;
+
+    font-family: "Libre Caslon Condensed", Georgia, serif;
+
+    font-size: 70px;
+
+    font-weight: 400;
+
+    line-height: 0.85;
+}
+
+
+.final-ending p {
+    font-size: 11px;
+
+    opacity: 0.45;
+}
+
+
+.final-ending h3 {
+    margin: 40px 0;
+
+    font-family: "Libre Caslon Condensed", Georgia, serif;
+
+    font-size: 100px;
+
+    font-weight: 400;
+
+    line-height: 0.75;
+}
+
+
+@media (max-width: 700px) {
+
+    .offer-title {
+        font-size: 60px;
+    }
+
+    .offer-choices {
+        flex-direction: column;
+    }
+
+    .warning-title {
+        font-size: 52px;
+    }
+
+    .final-question {
+        font-size: 85px;
+    }
+
+    .final-choices {
+        grid-template-columns: 1fr;
+    }
+
+    .final-ending h3 {
+        font-size: 70px;
+    }
+}
+
+/* ========================================
+   MOM MESSAGE STYLE
+======================================== */
+
+.mom-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+
+    border-bottom: 1px solid rgba(0, 0, 0, 0.18);
+}
+
+.mom-avatar {
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+    overflow: hidden;
+
+    background: #111;
+}
+
+.mom-avatar img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    display: block;
+}
+
+.mom-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.mom-info strong {
+    font-size: 12px;
+    letter-spacing: 1.5px;
+}
+
+.mom-info span {
+    margin-top: 3px;
+
+    font-size: 9px;
+    opacity: 0.45;
+}

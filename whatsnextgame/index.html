@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>What's Next?</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="start-screen">
+
+        <!-- floating objects -->
+
+        <img class="floating-object object-1"
+             src="images/1.png">
+
+        <img class="floating-object object-2"
+             src="images/2.png">
+
+        <img class="floating-object object-3"
+             src="images/3.png">
+
+        <img class="floating-object object-4"
+             src="images/4.png">
+
+        <img class="floating-object object-5"
+             src="images/5.png">
+
+        <img class="floating-object object-6"
+             src="images/6.png">
+
+
+        <!-- center content -->
+
+        <div class="center-content">
+
+            <p class="eyebrow">
+                AN INTERACTIVE STORY
+            </p>
+
+            <h1>
+                WHAT'S<br>
+                NEXT?
+            </h1>
+
+            <p class="intro">
+                You graduated.<br>
+                Everyone seems to want an answer.
+            </p>
+
+
+            <button class="file-button" onclick="startGame()">
+    <span class="folder-tab"></span>
+    START
+</button>
+
+        </div>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+
+<button class="dev-button" onclick="toggleDevMenu()">DEV</button>
+
+<div class="dev-menu" id="devMenu">
+    <button onclick="restartGame()">HOME</button>
+    <button onclick="showFirstChoice()">FIRST CHOICE</button>
+    <button onclick="dontKnow(1)">I DON'T KNOW</button>
+    <button onclick="startHomeRoute()">GO HOME</button>
+    <button onclick="startJobRoute()">JOB START</button>
+    <button onclick="firstApplication()">APPLICATION</button>
+    <button onclick="sponsorshipQuestion()">SPONSORSHIP</button>
+    <button onclick="interviewAccepted()">INTERVIEW</button>
+    <button onclick="startMoneySection()">MONEY</button>
+    <button onclick="startJobChaos()">CHAOS</button>
+   <button onclick="openOffer()">FINAL OFFER</button>
+   <button onclick="finalWhatsNext()">FINAL QUESTION</button>
+   <button onclick="finalChoice('unknown')">FINAL ENDING</button>
+</div>
+
+<script src="script.js"></script>
+
+</html>
