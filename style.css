@@ -3380,3 +3380,71 @@ line-height: 0.82;
     font-size: 9px;
     opacity: 0.45;
 }
+
+.first-choices {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    width: 300px;
+    margin: 30px auto;
+}
+
+.first-choices a {
+    text-decoration: none;
+    color: #111;
+    text-align: center;
+}
+
+.home-link {
+    display: inline-block;
+    margin-top: 20px;
+
+    color: #111;
+    text-decoration: none;
+
+    font-size: 9px;
+    letter-spacing: 1.5px;
+
+    opacity: 0.45;
+}
+
+.home-link:hover {
+    opacity: 1;
+}
+
+.start-link {
+    text-decoration: none;
+    color: #111;
+}
+
+.route-home-link {
+    position: fixed;
+    left: 25px;
+    bottom: 25px;
+
+    z-index: 9999;
+
+    color: #111;
+    text-decoration: none;
+
+    font-size: 9px;
+    letter-spacing: 1.5px;
+
+    opacity: 0.35;
+}
+
+.route-home-link:hover {
+    opacity: 1;
+}
+a.apply-button {
+    display: inline-block;
+    text-decoration: none;
+    color: #111;
+}
+
+a.restart-button {
+    display: inline-block;
+    text-decoration: none;
+    color: #111;
+}

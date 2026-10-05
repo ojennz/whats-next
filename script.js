@@ -67,9 +67,9 @@ function showFirstChoice() {
 
             <div class="choice-container">
 
-                <button class="choice-button" onclick="startJobRoute()">
-    FIND A JOB
-</button>
+                <a href="chaos.html" class="grind-apply">
+    APPLY
+</a>
 
                 <button class="choice-button" onclick="startHomeRoute()">
                     GO HOME
@@ -356,7 +356,7 @@ function startFlood() {
     `;
 
 
-    // 第一波信息
+    //
     const firstWave = [
 
         "you should go to shanghai. there are more opportunities.",
@@ -378,7 +378,7 @@ function startFlood() {
     ];
 
 
-    // 一个一个出现
+    // 
     firstWave.forEach(function(message, index) {
 
         setTimeout(function() {
@@ -388,7 +388,7 @@ function startFlood() {
                 index + 1
             );
 
-            // 每出现一个，画面再暗一点
+            // 
             screen.style.setProperty(
                 "--darkness",
                 0.08 + (index * 0.045)
@@ -594,14 +594,13 @@ function collapseHome() {
 
     const screen = document.querySelector(".start-screen");
 
-    // 清掉 flood 状态
+    
     screen.classList.remove("flood-dark");
     screen.classList.remove("second-flood");
 
-    // 进入真正的 black hole
     screen.classList.add("black-hole");
 
-    // 清掉 flood 时 JS 加进去的 darkness
+   
     screen.style.removeProperty("--darkness");
 
     screen.innerHTML = `
@@ -619,7 +618,7 @@ function collapseHome() {
     `;
 
 
-    // 3.5 秒后进入最终画面
+    
   setTimeout(function() {
 
     screen.innerHTML = `
@@ -638,9 +637,8 @@ function collapseHome() {
                 Somehow, it became another question.
             </p>
 
-            <button class="restart-button" onclick="restartGame()">
-                START OVER
-            </button>
+           <a href="index.html" class="restart-button">
+           START OVER</a>
 
         </div>
     `;
@@ -1072,10 +1070,6 @@ function firstJob() {
 }
 
 
-// ========================================
-// 06 — FIRST APPLICATION
-// PLACEHOLDER FOR NEXT SECTION
-// ========================================
 
 // ========================================
 // 06 — FIRST APPLICATION
@@ -1556,11 +1550,11 @@ function reviewApplication(sponsorshipAnswer) {
 
 
                 <button
-                    class="apply-button"
-                    onclick="submitFirstApplication()"
-                >
-                    SUBMIT APPLICATION
-                </button>
+    class="apply-button"
+    onclick="submitFirstApplication()"
+>
+    SUBMIT APPLICATION
+</button>
 
             </div>
 
@@ -2235,12 +2229,9 @@ function firstInterview() {
                 </div>
 
 
-                <button
-                    class="email-button interview-button"
-                    onclick="interviewAccepted()"
-                >
-                    ACCEPT INTERVIEW
-                </button>
+               <a href="interview.html" class="apply-button">
+    ACCEPT INTERVIEW
+</a>
 
             </div>
 
@@ -2930,13 +2921,10 @@ function afterInterviewRejection() {
                 OPT DAYS LEFT: 58
             </p>
 
-            <button
-                class="file-button"
-                onclick="startMoneySection()"
-            >
-                <span class="folder-tab"></span>
-                KEEP APPLYING
-            </button>
+           <a href="money.html" class="file-button start-link">
+    <span class="folder-tab"></span>
+    KEEP APPLYING
+</a>
 
         </div>
 
@@ -3567,7 +3555,7 @@ function silenceAfterChaos() {
 
     setTimeout(function() {
 
-        offerNotification();
+     window.location.href = "offer.html";
 
     }, 1800);
 }
@@ -3819,7 +3807,7 @@ function visaProblem() {
 
             <button
                 class="file-button"
-                onclick="finalWhatsNext()"
+                onclick="window.location.href='ending.html'"
             >
                 <span class="folder-tab"></span>
                 WHAT NOW?
@@ -4151,12 +4139,9 @@ function finalChoice(choice) {
                 WHAT'S NEXT?
             </h3>
 
-            <button
-                class="restart-button"
-                onclick="restartGame()"
-            >
-                START OVER
-            </button>
+            <a href="index.html" class="restart-button">
+            START OVER
+            </a>
 
         </div>
 
